@@ -12,11 +12,13 @@ This is a streamlit demo application that visualizes the table metada from SNOWF
 
 Set up credentials. Create a file .streamlit/secrets.toml and fill in your Snowflake account credentials. The file should look like this:
 
+'''
 [snowflake]
 user = "..."
 password = "..."
 account = "..."
 warehouse = "..."
 role = "..."
+'''
 
 Role should have access to Snowflake Account_Usage Database and Schema.
