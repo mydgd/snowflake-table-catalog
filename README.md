@@ -10,6 +10,8 @@ This is a streamlit demo application that visualizes the table metada from SNOWF
 ![This is an image](resources/Snowflake-Table-Catalog.png)
 
 
+**Prepare Your Application**
+
 Set up credentials. Create a file .streamlit/secrets.toml and fill in your Snowflake account credentials. The file should look like this:
 
 ```
@@ -23,14 +25,14 @@ role = "..."
 
 Role should have access to Snowflake Account_Usage Database and Schema.
 
-Run Your Application
+**Run Your Application**
 ```
-streamlit run snowflake-table-atalog.py
+streamlit run snowflake-table-catalog.py
 
 ```
 or 
 
 ```
-python -m streamlit run snowflake-table-atalog.py
+python -m streamlit run snowflake-table-catalog.py
 
 ```
