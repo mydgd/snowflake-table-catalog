@@ -1,11 +1,11 @@
 # Snowflake Table Catalog with Streamlit
-Streamlit application to explore Snowflake Tables
+This is a streamlit demo application that visualizes the table metadata from SNOWFLAKE database and helps exploring tables.
 
 Snowflake provides a system-defined, read-only shared database named SNOWFLAKE that contains metadata, as well as historical usage data, about the objects in your organization and accounts. This database provides information about your tables as well. 
 
 Whenever you want to understand your tables, you can query these tables directly and get the required information. On the other hand, you can use streamlit to create applications to monitor usage or metadata from Snowflake.
 
-This is a streamlit demo application that visualizes the table metada from SNOWFLAKE database.
+
 
 ![This is an image](resources/Snowflake-Table-Catalog.png)
 
