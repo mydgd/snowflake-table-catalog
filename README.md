@@ -22,3 +22,15 @@ role = "..."
 ```
 
 Role should have access to Snowflake Account_Usage Database and Schema.
+
+Run Your Application
+```
+streamlit run snowflake-table-atalog.py
+
+```
+or 
+
+```
+python -m streamlit run snowflake-table-atalog.py
+
+```
