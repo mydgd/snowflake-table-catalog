@@ -1,0 +1,49 @@
+.column {
+    float: left;
+    width: 33.33%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+  .kpi.number {
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(90, 90, 90);
+ }
+
+ .kpi.text{
+    font-size: 1rem;
+    text-align: center;
+    color: rgb(90, 90, 90);
+    padding-top: 10px;
+ }
+
+ .tablebackground{
+    background-color: #BAD2DE !important;
+  }
+
+
+ .viewbackground{
+  background-color: #CBE2DA !important;
+}
+  
+
+.mvbackground{
+  background-color: #E5F0EC !important;
+}
+
+
+  .smallheader{
+      font-size: small !important;
+  }
+
+  #my-container {
+    height: 100vh;
+    width: 100%;
+  }
