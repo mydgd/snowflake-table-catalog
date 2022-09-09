@@ -154,12 +154,12 @@ all_option = pd.Series(['All'], index=[9999999])
 #TABLE_SCHEMA=TABLE_SCHEMA.append({'TABLE_SCHEMA':'All'},ignore_index = True)
 
 if 'selectbox_database_key' not in st.session_state:
-    st.session_state.selectbox_database_key = 0
-    st.session_state.selectbox_schema_key = 0
-    st.session_state.selectbox_owner_key = 0
-    st.session_state.selectbox_table_type_key = 0
-    st.session_state.selectbox_max_rows_key = 0
-    st.session_state.selectbox_data_size_key = 0
+    st.session_state.selectbox_database_key = 10
+    st.session_state.selectbox_schema_key = 20
+    st.session_state.selectbox_owner_key = 30
+    st.session_state.selectbox_table_type_key = 40
+    st.session_state.selectbox_max_rows_key = 50
+    st.session_state.selectbox_data_size_key = 60
 
 # Table Catalog/Database
 fv_database = df['TABLE_CATALOG'].drop_duplicates()
