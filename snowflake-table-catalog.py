@@ -208,18 +208,38 @@ else:
 
 # #!!! This part is disabled since sliders are causing performance issues with large datasets.!!!
 # # data size selection
-# max_data_mb = int(df['BYTES'].max()/1048576)
-# data_size = st.sidebar.slider(
-#     'Data Size (MB)', 0, max_data_mb+1, (0, max_data_mb+1), key=st.session_state.selectbox_data_size_key)
-# df = df.loc[(df['BYTES'] >= data_size[0]*1048576) &
-#             (df['BYTES'] <= data_size[1]*1048576)]
+max_data_mb = int(df['BYTES'].max()/1048576)
+step_size = 1
 
-# # rows selection
-# max_rows = int(df['ROW_COUNT'].max())
-# data_rows = st.sidebar.slider('Number of Rows', 0, max_rows+1,
-#                               (0, max_rows+1), key=st.session_state.selectbox_max_rows_key)
-# df = df.loc[(df['ROW_COUNT'] >= data_rows[0]) &
-#             (df['ROW_COUNT'] <= data_rows[1])]
+if max_data_mb>1000:
+    step_size=10
+elif max_data_mb>1000000:
+    step_size=100
+elif max_data_mb>1000000000:
+    step_size=1000
+elif max_data_mb>1000000000000:
+    step_size=10000      
+
+data_size = st.sidebar.slider(
+    'Data Size (MB)', 0, max_data_mb+1, (0, max_data_mb+1), key=st.session_state.selectbox_data_size_key, step=step_size)
+df = df.loc[(df['BYTES'] >= data_size[0]*1048576) &
+            (df['BYTES'] <= data_size[1]*1048576)]
+
+# rows selection
+max_rows = int(df['ROW_COUNT'].max())
+step_size = 10
+
+if max_rows>1000000:
+    step_size=100
+elif max_rows>1000000000:
+    step_size=1000
+elif max_rows>1000000000000:
+    step_size=10000    
+
+data_rows = st.sidebar.slider('Number of Rows', 0, max_rows+1,
+                              (0, max_rows+1), key=st.session_state.selectbox_max_rows_key, step=step_size)
+df = df.loc[(df['ROW_COUNT'] >= data_rows[0]) &
+            (df['ROW_COUNT'] <= data_rows[1])]
 
 
 def reset_button():
