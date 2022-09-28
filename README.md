@@ -39,4 +39,4 @@ python -m streamlit run snowflake-table-catalog.py
 
 ```
 
-Edit: Application was tested with Streamlit 1.11.1 and Snowflake Python Connector 2.7.7, newer versions may crush the application.
+Edit: Application was tested with Streamlit 1.11.1 and Snowflake Python Connector 2.7.7.
