@@ -8,7 +8,7 @@ st.set_page_config(layout="wide")
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 
-url="https://raw.githubusercontent.com/mydgd/snowflake-table-catalog/main/data.csv"
+url="https://raw.githubusercontent.com/mydgd/snowflake-table-catalog/main/sample_data.csv"
 s=requests.get(url).content
 df=pd.read_csv(io.StringIO(s.decode('utf-8')))
 
