@@ -5,6 +5,9 @@ Snowflake provides a system-defined, read-only shared database named SNOWFLAKE t
 
 Whenever you want to understand your tables, you can query these tables directly and get the required information. On the other hand, you can use streamlit to create applications to monitor usage or metadata from Snowflake.
 
+Enjoy this online demo application hosted in Streamlit cloud with demo data.
+https://snow-table-catalog.streamlit.app/
+
 
 
 ![This is an image](resources/Snowflake-Table-Catalog.png)
