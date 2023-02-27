@@ -2,20 +2,16 @@
 import streamlit as st
 import snowflake.connector
 import pandas as pd
+import io
+import requests
 #import streamlit.components.v1 as components
 st.set_page_config(layout="wide")
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 
-def run_query(query):
-    with conn.cursor() as cur:
-        cur.execute(query)
-
-        dat = cur.fetchall()
-        df = pd.DataFrame(dat, columns=[col[0] for col in cur.description])
-        return df
-
-df = pd.read_csv("data.csv")
+url="https://raw.githubusercontent.com/mydgd/snowflake-table-catalog/main/data.csv"
+s=requests.get(url).content
+df=pd.read_csv(io.StringIO(s.decode('utf-8')))
 
 df['CREATED'] = pd.to_datetime(df['CREATED'])
 df['LAST_ALTERED'] = pd.to_datetime(df['LAST_ALTERED'])
