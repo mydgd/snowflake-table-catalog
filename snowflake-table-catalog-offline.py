@@ -1,5 +1,6 @@
 #from turtle import onclick
 import streamlit as st
+import snowflake.connector
 import pandas as pd
 import io
 import requests
@@ -8,7 +9,7 @@ st.set_page_config(layout="wide")
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 
-url="https://raw.githubusercontent.com/mydgd/snowflake-table-catalog/main/sample_data.csv"
+url="https://raw.githubusercontent.com/mydgd/snowflake-table-catalog/main/data.csv"
 s=requests.get(url).content
 df=pd.read_csv(io.StringIO(s.decode('utf-8')))
 
@@ -119,7 +120,7 @@ if 'selectbox_database_key' not in st.session_state:
 
 # Table Catalog/Database
 fv_database = df['TABLE_CATALOG'].drop_duplicates()
-fv_database = fv_database.append(all_option)
+fv_database = pd.concat([fv_database,all_option])
 
 selectbox_database = st.sidebar.selectbox(
     'Database', fv_database, index=len(fv_database)-1, key=st.session_state.selectbox_database_key)
@@ -131,7 +132,7 @@ else:
 
 # Table Schema
 fv_table_schema = df['TABLE_SCHEMA'].drop_duplicates()
-fv_table_schema = fv_table_schema.append(all_option)
+fv_table_schema = pd.concat([fv_table_schema, all_option])
 
 selectbox_schema = st.sidebar.selectbox(
     "Table Schema", fv_table_schema, len(fv_table_schema)-1, key=st.session_state.selectbox_schema_key)
