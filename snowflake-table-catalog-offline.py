@@ -143,7 +143,7 @@ else:
 
 # Table Owner
 fv_owner = df['TABLE_OWNER'].drop_duplicates()
-fv_owner = fv_owner.append(all_option)
+fv_owner = pd.concat([fv_owner,all_option])
 selectbox_owner = st.sidebar.selectbox(
     "Table Owner", fv_owner, len(fv_owner)-1, key=st.session_state.selectbox_owner_key)
 
