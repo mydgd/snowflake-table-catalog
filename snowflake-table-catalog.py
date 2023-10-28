@@ -163,7 +163,7 @@ if 'selectbox_database_key' not in st.session_state:
 
 # Table Catalog/Database
 fv_database = df['TABLE_CATALOG'].drop_duplicates()
-fv_database = fv_database.append(all_option)
+fv_database = pd.concat([fv_database,all_option])
 
 selectbox_database = st.sidebar.selectbox(
     'Database', fv_database, index=len(fv_database)-1, key=st.session_state.selectbox_database_key)
@@ -175,7 +175,7 @@ else:
 
 # Table Schema
 fv_table_schema = df['TABLE_SCHEMA'].drop_duplicates()
-fv_table_schema = fv_table_schema.append(all_option)
+fv_table_schema = pd.concat([fv_table_schema, all_option])
 
 selectbox_schema = st.sidebar.selectbox(
     "Table Schema", fv_table_schema, len(fv_table_schema)-1, key=st.session_state.selectbox_schema_key)
@@ -187,7 +187,7 @@ else:
 
 # Table Owner
 fv_owner = df['TABLE_OWNER'].drop_duplicates()
-fv_owner = fv_owner.append(all_option)
+fv_owner = pd.concat([fv_owner,all_option])
 selectbox_owner = st.sidebar.selectbox(
     "Table Owner", fv_owner, len(fv_owner)-1, key=st.session_state.selectbox_owner_key)
 
